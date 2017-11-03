@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { VictoryPie } from 'victory';
 // The FullRoster iterates over all of the players and creates
 // a link to their profile page.
 var unirest = require('unirest');
@@ -27,7 +27,18 @@ class FighterDetails extends Component {
   render() {
     return (
       <div className="Fighter">
-        {this.state.fighters.name}  
+        <section>
+          {this.state.fighters.name}
+          {this.state.fighters.wiki_link}
+        </section>
+        <section>
+          <VictoryPie
+          startAngle={90}
+          endAngle={-90}
+          data={[{ x: "Wins", y: 35 },
+          { x: "loss", y: 40 }]}
+          />
+        </section>
       </div>
     );
   }

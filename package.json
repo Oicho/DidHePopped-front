@@ -1,13 +1,13 @@
 {
-  "private": true,
   "name": "DidHePopped-Front",
   "description": "",
   "version": "0.0.2",
   "dependencies": {
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
     "react": "15.5.3",
-    "unirest": "^0.5.1"
+    "react-dom": "15.5.3",
+    "react-router-dom": "4.1.1",
+    "unirest": "^0.5.1",
+    "victory": "^0.23.1"
   },
   "devDependencies": {
     "react-scripts": "1.0.0"

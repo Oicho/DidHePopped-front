@@ -8,7 +8,7 @@ var unirest = require('unirest');
 class FullFighters extends Component {
   constructor() {
     super();
-    this.state = { fighters: ["asfas", "Jon jones"] };
+    this.state = { fighters: [] };
   }
 
   componentDidMount() {
@@ -16,8 +16,9 @@ class FullFighters extends Component {
     var req = unirest("GET", "http://localhost:8181/dhp/api/fighters");
     req.headers({'Access-Control-Allow-Origin': '*'});
     req.end(function (response) {
+      console.log(response.body);
       // Check if we get something. with that I can work without the backend running
-      if (response.body != undefined)
+      if (response.body !== undefined)
         self.setState({fighters: response.body});
     });
   }
@@ -28,8 +29,8 @@ class FullFighters extends Component {
       <ul>
       {
         this.state.fighters.map(p => (
-          <li key={p}>
-            <Link to={`/fighters/${p}`}>{p}</Link>
+          <li key={p.id}>
+            <Link to={`/fighters/${p.id}`}>{p.name}</Link>
           </li>
         ))
       }
